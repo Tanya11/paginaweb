@@ -1,1 +1,10 @@
+stages:
+- name: hjghg
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./Dockerfile
+      buildContext: .
+      tag: dasdas/app1
+      pushRemote: true
+      registry: 127.0.0.1:34090
 timeout: 60
