@@ -7,8 +7,8 @@ metadata:
   namespace: ejercicios
   annotations:
     monitoring: "true"
-    audit: "Cambio index versión con Always 3"
-    cattle.io/timestamp: "Fecha"
+    audit: "Cambio index versión con Always 8"
+    cattle.io/timestamp: "Fecha8"
 spec:
   replicas: 1
   selector:
