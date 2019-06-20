@@ -1,10 +1,14 @@
 stages:
-- name: hjghg
+- name: Crear Imagen
   steps:
   - publishImageConfig:
       dockerfilePath: ./Dockerfile
       buildContext: .
-      tag: dasdas/app1
-      pushRemote: true
+      tag: czdev/miws
       registry: 127.0.0.1:34090
+- name: Crear en k8s
+  steps:
+  - applyYamlConfig:
+      path: ./deployment.yaml
 timeout: 60
+notification: {}
