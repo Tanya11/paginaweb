@@ -1,6 +1,2 @@
 # sitioweb
-prueba de sitio web con Docker
-asdasdsa
-sadasa
-uuuuuuuu
-iiii
+Este es un sitio web de prueba para Kubernetes más Rancher para implementar un Pipeline básico
