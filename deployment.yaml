@@ -7,6 +7,7 @@ metadata:
   namespace: ejercicios
   annotations:
     monitoring: "true"
+    audit: "Cambio index"
 spec:
   replicas: 1
   selector:
