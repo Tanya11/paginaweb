@@ -4,7 +4,7 @@ metadata:
   name: nginx
   labels:
     app: nginx
-  namespace: ejercicios
+  namespace: entrega-final
   annotations:
     monitoring: "true"
     audit: "Cambio index versión con Always 8"
