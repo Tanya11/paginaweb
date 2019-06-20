@@ -7,12 +7,17 @@ metadata:
   namespace: ejercicios
   annotations:
     monitoring: "true"
-    audit: "Cambio index"
+    audit: "Cambio index versión con Always"
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: nginx
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+    type: RollingUpdate      
   template:
     metadata:
       labels:
@@ -20,6 +25,7 @@ spec:
     spec:
       containers:
       - image: czdev/miws
+        imagePullPolicy: Always
         name: nginx
         ports:
         - containerPort: 80
