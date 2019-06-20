@@ -5,7 +5,8 @@ stages:
       dockerfilePath: ./Dockerfile
       buildContext: .
       tag: czdev/miws
-      registry: 127.0.0.1:34090
+      pushRemote: true
+      registry: index.docker.io
 - name: Crear en k8s
   steps:
   - applyYamlConfig:
