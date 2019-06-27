@@ -1,17 +1,27 @@
-kind: Service
 apiVersion: v1
+kind: Service
 metadata:
-  name: nginx
+  annotations:
+    field.cattle.io/targetWorkloadIds: '["deployment:entrega-final:nginx"]'
+    workload.cattle.io/targetWorkloadIdNoop: "true"
+    workload.cattle.io/workloadPortBased: "true"
+  labels:
+    cattle.io/creator: norman
+  name: nginx-loadbalancer
+  namespace: entrega-final
 spec:
-  selector:
-    app: nginx
-  type: LoadBalancer
+  externalTrafficPolicy: Cluster
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 80
+  - name: 80tcp803
+    nodePort: 31445
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    workload.user.cattle.io/workloadselector: deployment-entrega-final-nginx
+  type: LoadBalancer
 ---
-apiVersion: apps/v1
+apiVersion: apps/v1beta2
 kind: Deployment
 metadata:
   name: nginx
@@ -21,6 +31,8 @@ metadata:
   annotations:
     monitoring: "true"
     audit: "Cambio index versión con Always 8"
+  labels:
+    workload.user.cattle.io/workloadselector: deployment-entrega-final-nginx    
 spec:
   replicas: 1
   selector:
@@ -42,3 +54,5 @@ spec:
         name: nginx
         ports:
         - containerPort: 80
+          name: 80tcp803
+          protocol: TCP
