@@ -7,7 +7,7 @@ stages:
       tag: czdev/miws
       pushRemote: true
       registry: index.docker.io
-- name: Crear en k8s
+- name: Crear en Fase2-lab
   steps:
   - applyYamlConfig:
       path: ./deployment.yaml
