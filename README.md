@@ -16,8 +16,18 @@
 	6. Al crear el droplet copiar la ip que genero
 	7. Ir a la terminal de la coputadora local
 	8. y entrar a la terminal con el siguiente comando:
-			$ ssh rancher@ip
+			
+		$ ssh rancher@ip
 	
 	9. ya adentro del droplet colocar el siguiente comando:
-			$ docker run -d --restart=stop -p 8080:8080 rancher/server
+			
+		$ docker run -d --restart=always -p 8080:8080 rancher/server
+		
+	10.Ingrear a un navegador y colocar:
+		
+		https://ip:8080
+	11. Esto nos va a dirigir al login y agregamos un  password y confirmamos
+	12. Ingresamos a rancher 
+# Creacion de Cluster
+
   
